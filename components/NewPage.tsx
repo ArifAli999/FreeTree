@@ -62,7 +62,7 @@ function NewPage() {
     }
 
     return (
-        <SheetContent className='relative  h-full' >
+        <SheetContent className='relative w-full  md:w-[38%] h-full' >
             <SheetHeader>
                 <SheetTitle>Page Settings</SheetTitle>
                 <SheetDescription>

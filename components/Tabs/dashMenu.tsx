@@ -4,8 +4,8 @@ import GeneralTab from './GeneralTab'
 
 function DashMenu() {
     return (
-        <div className='flex  w-full' >
-            <Tabs defaultValue="account" className="w-full mt-6">
+        <div className='flex  ' >
+            <Tabs defaultValue="account" className=" mt-6">
                 <TabsList className='w-full text-left'>
                     <TabsTrigger value="general">Dashboard</TabsTrigger>
                     <TabsTrigger value="account">Account</TabsTrigger>
