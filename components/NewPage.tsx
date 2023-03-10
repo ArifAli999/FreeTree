@@ -1,4 +1,3 @@
-import { Label } from '@radix-ui/react-dropdown-menu'
 import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
@@ -10,8 +9,10 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { BsTrash2 } from 'react-icons/bs';
-
+import {  BsTrash2 } from 'react-icons/bs';
+import { FaLockOpen } from 'react-icons/fa'
+import { Label } from './ui/label';
+import LinkDropDowns from './Helpers/LinkDropDowns';
 
 function InputComponent({ id, handleClick, showOtherComponent, handleDeleteInput }) {
 
@@ -19,21 +20,16 @@ function InputComponent({ id, handleClick, showOtherComponent, handleDeleteInput
 
     return (
         <>
-
             {showOtherComponent ? (
-                <Popover>
+               
                     <div className='flex flex-row w-full items-center relative gap-4 ' >
-                        <input id='seearcb' className=" w-[90%] p-3 break-words overflow-scroll pr-4 text-sm  text-black border leading-2  border-gray-500 rounded-lg bg-white focus:ring-blue-0 dark:border-slate-600 dark:placeholder-slate-400 dark:bg-transparent dark:focus:ring-slate-500 dark:focus:border-slate-500 dark:text-white" placeholder="Enter link" />
-                        <PopoverTrigger onClick={() => handleClick(id)} className=''><BsTrash2 /></PopoverTrigger>
+                        <input id='seearcb' className=" w-[95%] p-3 break-words overflow-scroll pr-4 text-sm  text-black border leading-2  border-gray-500 rounded-lg bg-white focus:ring-blue-0 dark:border-slate-600 dark:placeholder-slate-400 dark:bg-transparent dark:focus:ring-slate-500 dark:focus:border-slate-500 dark:text-white" placeholder="Enter link" />
+                        <LinkDropDowns/>
                     </div>
-                    <PopoverContent className=' mt-4 mr-4 flex flex-col gap-6 border-gray-600'>
-                        <p className='text-sm font-medium'>This is a permanent action. Do you want to continue?</p>
-                        <div className='flex justify-end gap-4 mt-4'>
-                            <Button variant='destructive' onClick={() => handleDeleteInput(id)}>Yes</Button>
-                        <Button variant='outline'>No</Button>
-                        </div>
-                    </PopoverContent>
-                </Popover>) : null}
+                  
+                    
+            ) : null}
+         
         </>
 
 
@@ -62,24 +58,28 @@ function NewPage() {
     }
 
     return (
-        <SheetContent className='relative w-full  md:w-[38%] h-full' >
+        <SheetContent position='top' className='relative w-full  md:w-[38%] h-full' >
             <SheetHeader>
-                <SheetTitle>Page Settings</SheetTitle>
-                <SheetDescription>
-                    Please fill out all the fields as mentioned, these can be changed
-                    at any time so dont worry.
+                <SheetTitle>PAGE SETUP</SheetTitle>
+                <SheetDescription className='text-xs'>
+                    This is a multistep proceess, to begin provide us with all the links you'd like to share 
+                    to see some magic!
                 </SheetDescription>
             </SheetHeader>
-            <div className="flex flex-col gap-8 py-4 mt-4">
-                <div className="grid w-full  items-center gap-1.5">
-                    <Label className='text-xs dark:text-slate-300 mb-1 leading-relaxed  uppercase'  >Page Name</Label>
-                    <Input type="email" id="email-2" placeholder="Email" />
+            <div className="flex flex-col gap-4 py-4 mt-4">
+                <div className="grid w-full  items-center gap-1.5 mb-2">
+                    <Label className='text-xs dark:text-slate-100 mb-1 leading-relaxed'  >page name</Label>
+                    <input  className=" w-full p-3 break-words overflow-scroll pr-4 text-sm  text-black border leading-2 focus:ring-2 border-gray-500 rounded-lg bg-white focus:ring-black dark:border-slate-600 dark:placeholder-slate-400 dark:bg-transparent dark:focus:ring-slate-500 dark:focus:border-slate-500 dark:text-white" placeholder="Enter link" />
                 </div>
 
-                <div className="flex flex-col w-full  gap-2.5 relative ">
-                    <div className='flex flex-row items-center justify-between mb-2.5'>
-                        <Label className='text-lg dark:text-slate-300' >Links</Label>
-                        <Button onClick={handleAddInput} variant='subtle' className=' right-0 top-20 w-[30px] h-[30px] text-right rounded-full bg-black dark:bg-slate-700 text-white'>+</Button>
+                <div className='flex flex-row justify-between'>
+                <Label className='text-lg dark:text-slate-300' >Links</Label>
+                <Button onClick={handleAddInput} variant='subtle' className=' w-[30px] h-[30px] text-right rounded-full bg-black dark:bg-slate-700 text-white'>+</Button>
+                </div>
+
+                <div className="flex flex-col w-full -mt-2.5 pr-6  gap-2.5 relative h-[340px] overflow-scroll">
+                    <div className='flex flex-row items-center justify-between mb-2.5 '>
+                        
 
                     </div>
                     {inputs.map((input) => (
