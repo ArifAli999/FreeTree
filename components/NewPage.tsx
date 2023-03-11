@@ -62,7 +62,7 @@ function NewPage() {
             <SheetHeader>
                 <SheetTitle>PAGE SETUP</SheetTitle>
                 <SheetDescription className='text-xs'>
-                    This is a multistep proceess, to begin provide us with all the links you'd like to share 
+                    This is a multistep proceess, to begin provide us with all the links you want to share 
                     to see some magic!
                 </SheetDescription>
             </SheetHeader>

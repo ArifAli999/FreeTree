@@ -1,4 +1,5 @@
 import { siteConfig } from '@/config/site'
+import { SignInButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 import { buttonVariants } from '../ui/button'
@@ -24,14 +25,7 @@ const GuestLanding = () => {
                 >
                     Register
                 </Link>
-                <Link
-                    target="_blank"
-                    rel="noreferrer"
-                    href={siteConfig.links.github}
-                    className={buttonVariants({ variant: "outline", size: "lg" })}
-                >
-                    Login
-                </Link>
+             <SignInButton/>
 
             </div>
         </section>
