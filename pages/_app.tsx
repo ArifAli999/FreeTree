@@ -10,6 +10,7 @@ import {
 } from "@clerk/nextjs";
 
 import { useRouter } from "next/router";
+import { Toaster } from "@/components/ui/toaster";
 
 //  List pages you want to be publicly accessible, or leave empty if
 //  every page requires authentication. Use this naming strategy:
@@ -43,17 +44,20 @@ export default function App({ Component, pageProps }: AppProps) {
       <ClerkProvider {...pageProps}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {isPublicPage ? (
-            <Component {...pageProps} />
+            <><Component {...pageProps} /><Toaster /></>
           ) : (
             <>
               <SignedIn>
+             
                 <Component {...pageProps} />
+                <Toaster />
               </SignedIn>
               <SignedOut>
                 <RedirectToSignIn />
               </SignedOut>
             </>
           )}
+     
         </ThemeProvider>
       </ClerkProvider>
     </>

@@ -13,6 +13,8 @@ import {  BsTrash2 } from 'react-icons/bs';
 import { FaLockOpen } from 'react-icons/fa'
 import { Label } from './ui/label';
 import LinkDropDowns from './Helpers/LinkDropDowns';
+import { useToast } from "@/hooks/use-toast"
+import { ToastAction } from './ui/toast';
 
 function InputComponent({ id, handleClick, showOtherComponent, handleDeleteInput }) {
 
@@ -22,11 +24,12 @@ function InputComponent({ id, handleClick, showOtherComponent, handleDeleteInput
         <>
             {showOtherComponent ? (
                
-                    <div className='flex flex-row w-full items-center relative gap-4 ' >
-                        <input id='seearcb' className=" w-[95%] p-3 break-words overflow-scroll pr-4 text-sm  text-black border leading-2  border-gray-500 rounded-lg bg-white focus:ring-blue-0 dark:border-slate-600 dark:placeholder-slate-400 dark:bg-transparent dark:focus:ring-slate-500 dark:focus:border-slate-500 dark:text-white" placeholder="Enter link" />
+                    <div className='flex flex-row w-full items-center relative gap-4 justify-between' >
                         <LinkDropDowns/>
+                        <input id='seearcb' className=" w-full p-3 break-words overflow-scroll pr-4 text-sm  text-black border leading-2  border-gray-500 rounded-lg bg-white focus:ring-blue-0 dark:border-slate-600 dark:placeholder-slate-400 dark:bg-transparent dark:focus:ring-slate-500 dark:focus:border-slate-500 dark:text-white" placeholder="Enter link" />
                     </div>
                   
+             
                     
             ) : null}
          
@@ -40,10 +43,13 @@ function NewPage() {
 
     const [inputs, setInputs] = useState([]);
     const [showOtherComponent, setShowOtherComponent] = useState(true);
+    const [disabled, setDisabled] = useState(false);
 
+    const { toast } = useToast()
 
     const handleAddInput = () => {
         const newInput = { id: uuidv4() };
+        if(inputs.length >=5) return handleToast();
         setInputs([...inputs, newInput]);
     };
 
@@ -57,8 +63,13 @@ function NewPage() {
         setShowOtherComponent(true);
     }
 
+    function handleToast() {
+     setDisabled(true);
+
+    }
+
     return (
-        <SheetContent position='top' className='relative w-full  md:w-[38%] h-full' >
+        <SheetContent position='right' className='relative w-full z-20  md:w-[38%] h-full' >
             <SheetHeader>
                 <SheetTitle>PAGE SETUP</SheetTitle>
                 <SheetDescription className='text-xs'>
@@ -74,11 +85,14 @@ function NewPage() {
 
                 <div className='flex flex-row justify-between'>
                 <Label className='text-lg dark:text-slate-300' >Links</Label>
-                <Button onClick={handleAddInput} variant='subtle' className=' w-[30px] h-[30px] text-right rounded-full bg-black dark:bg-slate-700 text-white'>+</Button>
+                <div className='flex gap-4 items-center'>
+                <span className='text-md font-bold'>{inputs.length}/5</span>
+                <Button disabled={disabled} onClick={handleAddInput} variant='subtle' className=' w-[30px] h-[30px] text-right rounded-full bg-black dark:bg-slate-700 text-white'>+</Button>
+                </div>
                 </div>
 
-                <div className="flex flex-col w-full -mt-2.5 pr-6  gap-2.5 relative h-[340px] overflow-scroll">
-                    <div className='flex flex-row items-center justify-between mb-2.5 '>
+                <div className="flex flex-col w-full -mt-2.5 gap-2.5 relative h-[340px] overflow-scroll scrollbar-none">
+                    <div className='flex flex-row items-center justify-between mb-25 '>
                         
 
                     </div>
