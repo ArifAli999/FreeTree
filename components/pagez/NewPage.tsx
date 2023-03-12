@@ -9,6 +9,7 @@ import PageTwoform from '../Helpers/PageTwoform';
 function NewPage() {
 
     const [formNumber, setNumber] = useState(1);
+    const [inputs, setInputs] = useState([]);
 
     function nextStep() {
         if (formNumber >=4 )return null;
@@ -23,14 +24,16 @@ function NewPage() {
 
     return (
         <SheetContent position='right' className='relative w-full z-20  md:w-[38%] h-full flex flex-col justify-between' >
-            {formNumber === 1 && <PageOneform  formNumber={formNumber}/>}
-            {formNumber === 2 && <PageTwoform formNumber={formNumber}/>}
 
+            <div>
+            {formNumber === 1 && <PageOneform inputs={inputs} setInputs={setInputs} formNumber={formNumber}/>}
+            {formNumber === 2 && <PageTwoform formNumber={formNumber} inputs={inputs} setInputs={setInputs}/>}
+            </div>
           
             <SheetFooter className=' bottom-6 flex w-full justify-between items-center'>
-                <Button type="submit" onClick={nextStep}>Next</Button>
 
-                <Button type="submit" onClick={backStep} disabled={formNumber === 1? true : false}>Back</Button>
+                <Button type="submit" variant='subtle' onClick={backStep} disabled={formNumber === 1? true : false}>Back</Button>
+                <Button type="submit" onClick={nextStep}>Next</Button>
 
             </SheetFooter>
         </SheetContent>

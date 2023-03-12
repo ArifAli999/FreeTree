@@ -38,9 +38,9 @@ function InputComponent({ index, handleDeleteInput, setInputs, inputs }) {
 }
 
 
-function PageOneform({ formNumber }) {
+function PageOneform({ formNumber, inputs, setInputs }) {
 
-    const [inputs, setInputs] = useState([]);
+   
     const [disabled, setDisabled] = useState(false);
     
 
@@ -73,8 +73,8 @@ function PageOneform({ formNumber }) {
               to see some magic!
           </SheetDescription>
       </SheetHeader>
-      <div className="flex flex-col gap-4 py-4 mt-4">
-              <div className="grid w-full  items-center gap-1.5 mb-2">
+      <div className="flex flex-col gap-4 py-4 mt-0">
+              <div className="grid w-full  items-center gap-1 mb-2">
                   <Label className='text-xs dark:text-slate-100 mb-1 leading-relaxed'>page name</Label>
                   <input className=" w-full p-3 break-words overflow-scroll pr-4 text-sm  text-black border leading-2 focus:ring-2 border-gray-500 rounded-lg bg-white focus:ring-black dark:border-slate-600 dark:placeholder-slate-400 dark:bg-transparent dark:focus:ring-slate-500 dark:focus:border-slate-500 dark:text-white" placeholder="Enter link" />
               </div>
@@ -87,7 +87,7 @@ function PageOneform({ formNumber }) {
                   </div>
               </div>
 
-              <div className="flex flex-col w-full -mt-2.5 gap-2.5 relative h-[340px] overflow-scroll scrollbar-none">
+              <div className="flex flex-col w-full  gap-2.5 relative min-h-[320px] overflow-scroll scrollbar-none">
                   <div className='flex flex-row items-center justify-between mb-25 '>
 
 
