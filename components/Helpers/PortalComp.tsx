@@ -29,7 +29,7 @@ function PortalComp({ inputs , setInputs}) {
               <div className="flex-1 p-4 bg-white dark:bg-slate-700">
                   {/* Your component goes here */}
                   <h1 className="text-xl font-bold mb-4">Hello World</h1>
-                  <DraggableList items={inputs}/>
+                  <DraggableList inputs={inputs} setInputs={setInputs}/>
               </div>
           </div>
       </div>
