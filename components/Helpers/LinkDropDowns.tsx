@@ -11,7 +11,7 @@ function LinkDropDowns() {
           <DropdownMenuTrigger>
               <Button variant='ghost' className=''><Settings /></Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className='w-[250px] md:mr-0 m-3'>
+          <DropdownMenuContent className='w-[200px] md:mr-0 m-3'>
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem className='flex items-center justify-between'>

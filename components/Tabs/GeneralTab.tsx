@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
-import NewPage from '../NewPage'
+import NewPage from '../pagez/NewPage'
 function GeneralTab() {
     return (
         <TabsContent value="general">
