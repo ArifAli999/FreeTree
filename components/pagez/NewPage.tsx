@@ -32,7 +32,7 @@ function NewPage() {
             {formNumber === 2 && <PageTwoform formNumber={formNumber} inputs={inputs} setInputs={setInputs}/>} */}
 
 
-                {formNumber === 1 && <AccountSetup accounts={accounts} setAccounts={setAccounts} />}
+                {formNumber === 1 && <AccountSetup />}
             </div>
           
             <SheetFooter className=' bottom-6 flex w-full justify-between items-center'>
