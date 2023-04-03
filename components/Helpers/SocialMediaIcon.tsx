@@ -47,10 +47,11 @@ function SocialMediaIcon({ name, onChange }) {
                     <AlertDialogHeader>
                         <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
                         <AlertDialogDescription>
-                            <Input
+                            <input
                                 placeholder={`Enter ${name} link`}
                                 value={inputValue}
                                 onChange={handleInputChange}
+                                className="h-10 w-full rounded-md border border-slate-300 bg-transparent py-2 px-3 text-sm placeholder:text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-600 dark:text-slate-50 dark:focus:ring-slate-500"
                             />
                         </AlertDialogDescription>
                     </AlertDialogHeader>
