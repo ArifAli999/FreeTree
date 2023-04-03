@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { SheetContent, SheetFooter } from '../ui/sheet'
 import PageOneform from '../Helpers/PageOneform';
@@ -10,8 +10,19 @@ import AccountSetup from '../Helpers/AccountSetup';
 function NewPage() {
 
     const [formNumber, setNumber] = useState(1);
-    const [inputs, setInputs] = useState([]);
-    const [accounts, setAccounts] = useState([])
+    const [inputs, setInputs] = useState({
+        facebook: '',
+        instagram: '',
+        twitter: '',
+    })
+    const [links, setLinks] = useState([])
+
+    useEffect(() => {
+        setLinks(Object.values(inputs));
+    }, [inputs])
+
+
+
 
     function nextStep() {
         if (formNumber >=4 )return null;
@@ -32,7 +43,8 @@ function NewPage() {
             {formNumber === 2 && <PageTwoform formNumber={formNumber} inputs={inputs} setInputs={setInputs}/>} */}
 
 
-                {formNumber === 1 && <AccountSetup />}
+                {formNumber === 1 && <AccountSetup inputs={inputs} setInputs={setInputs} />}
+                {links && formNumber === 2 && <PageTwoform formNumber={formNumber} inputs={links} setInputs={setLinks} />} 
             </div>
           
             <SheetFooter className=' bottom-6 flex w-full justify-between items-center'>

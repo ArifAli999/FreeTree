@@ -9,44 +9,31 @@ import SocialMediaIcon from './SocialMediaIcon'
 
 
 
-function AccountSetup() {
+function AccountSetup({ inputs, setInputs }) {
 
     const [facebookLink, setFacebookLink] = useState('');
     const [twitterLink, setTwitterLink] = useState('');
     const [instagramLink, setInstagramLink] = useState('');
-    const [links, setLinks] = useState({
-        facebook: '',
-        instagram: '',
-        twitter: '',
-    })
+
 
     function handleFacebookLinkChange(value) {
         setFacebookLink(value);
-        setLinks({
-            facebook: value,
-            instagram: instagramLink,
-            twitter: twitterLink
-        })
+        setInputs((prevState) => ({ ...prevState, facebook: value }));
+
     }
 
     function handleTwitterLinkChange(value) {
         setTwitterLink(value);
-        setLinks({
-            facebook: facebookLink,
-            instagram: instagramLink,
-            twitter: value,
-        })
+        setInputs((prevState) => ({ ...prevState, twitter: value }));
+
 
     }
 
     function handleInstagramLinkChange(value) {
 
         setInstagramLink(value);
-        setLinks({
-            facebook: facebookLink,
-            instagram: value,
-            twitter: twitterLink
-        })
+        setInputs((prevState) => ({ ...prevState, instagram: value }));
+
     }
 
     return (
