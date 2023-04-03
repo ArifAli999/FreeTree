@@ -7,6 +7,11 @@ import AccountSetup from '../Helpers/AccountSetup';
 
 
 
+
+interface linkSetupI {
+    [key: string]: any
+}
+
 function NewPage() {
 
     const [formNumber, setNumber] = useState(1);
@@ -18,7 +23,11 @@ function NewPage() {
     const [links, setLinks] = useState([])
 
     useEffect(() => {
-        setLinks(Object.values(inputs));
+        const linksArray = Object.entries(inputs).map(([key, value]) => ({
+            key,
+            value,
+        }));
+        setLinks(linksArray);
     }, [inputs])
 
 

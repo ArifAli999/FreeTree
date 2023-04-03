@@ -8,7 +8,7 @@ const DraggableList = ({ inputs, setInputs }) => {
 
     const handleDragEnd = (startIndex, dragInfo) => {
         const dragY = dragInfo.point.y;
-        const itemHeight = 200; // adjust this to match your item height
+        const itemHeight = 180; // adjust this to match your item height
         let endIndex = Math.round(dragY / itemHeight);
 
         if (endIndex > startIndex) {

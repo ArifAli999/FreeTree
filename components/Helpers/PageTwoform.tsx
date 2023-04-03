@@ -10,7 +10,8 @@ function PageTwoform({ formNumber, inputs, setInputs }) {
               <h2 className=''>PAGE SETUP</h2>
             </SheetTitle>
           <SheetDescription className='text-xs '>
-              Please define the layout of your page, feel free to drag them around or go back and add more links
+        Feel free to drag them around or go back and add more links.
+        You will be able to fully customize the page in the next step so for now just make sure your links look good!
           </SheetDescription>
 
           <PortalComp inputs={inputs} setInputs={setInputs}/>
