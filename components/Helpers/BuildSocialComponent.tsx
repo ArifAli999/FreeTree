@@ -2,6 +2,8 @@ import { ColorSetup, FacebookStyles, TwitterStyles } from '@/config/colorSetup';
 import { motion, MotionStyle } from 'framer-motion';
 import { ArrowRightIcon, Facebook, FacebookIcon, Instagram, LucideFacebook, Twitter } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
+import { BsSpotify } from 'react-icons/bs';
+import { FaItunesNote } from 'react-icons/fa';
 
 function BuildSocialComponent({ item, index, handleDragEnd }) {
 
@@ -68,7 +70,7 @@ function BuildSocialComponent({ item, index, handleDragEnd }) {
             onDragStart={handleDragStart}
             onDrag={handleDrag}
             onDragEnd={handleDragStop}
-            animate={{ opacity: isDragging ? '0.4' : '0.88', color: isDragging ? 'black' : 'white' }}
+            animate={{ opacity: isDragging ? '0.7' : '1', color: isDragging ? 'black' : 'white' }}
             style={generateStyle(item.key)}
             className='text-white bg-black shadow-sm shadow-black/80 flex flex-row items-center cursor-pointer  transition-all duration-150 justify-between rounded-md  dark:bg-slate-800 p-4'
         >
@@ -89,6 +91,20 @@ function BuildSocialComponent({ item, index, handleDragEnd }) {
             {item.key === 'instagram' ? (
                 <div className='flex flex-row gap-4 items-center'>
                     <Instagram color='#FFC0CB' />
+                    <p className=''>{item.value}</p>
+                </div>
+            ) : null}
+
+            {item.key === 'amusic' ? (
+                <div className='flex flex-row gap-4 items-center'>
+                    <FaItunesNote color='#FFC0CB' />
+                    <p className=''>{item.value}</p>
+                </div>
+            ) : null}
+
+            {item.key === 'spotify' ? (
+                <div className='flex flex-row gap-4 items-center'>
+                    <BsSpotify color='green' />
                     <p className=''>{item.value}</p>
                 </div>
             ) : null}

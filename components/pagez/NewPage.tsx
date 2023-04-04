@@ -19,6 +19,12 @@ function NewPage() {
         facebook: '',
         instagram: '',
         twitter: '',
+        spotify: '',
+        amusic: '',
+        linkedin: '',
+        youtube: '',
+        pintrest: '',
+        other: '',
     })
     const [links, setLinks] = useState([])
 

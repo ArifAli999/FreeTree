@@ -1,5 +1,5 @@
 import { Label } from '@radix-ui/react-dropdown-menu'
-import { AppleIcon, FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react'
+import { AppleIcon, FacebookIcon, Instagram, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react'
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button"
 
@@ -14,6 +14,12 @@ function AccountSetup({ inputs, setInputs }) {
     const [facebookLink, setFacebookLink] = useState('');
     const [twitterLink, setTwitterLink] = useState('');
     const [instagramLink, setInstagramLink] = useState('');
+    const [spotiftLink, setSpotifyLink] = useState('');
+    const [amusicLink, setAMusicLink] = useState('');
+    const [linkedInLink, setLinkedLink] = useState('');
+    const [pintrestLink, setPintrestLink] = useState('');
+    const [youtubeLink, setYoutubeLink] = useState('');
+
 
 
     function handleFacebookLinkChange(value) {
@@ -36,6 +42,32 @@ function AccountSetup({ inputs, setInputs }) {
 
     }
 
+    function hanndleSpotifyChange(value) {
+        setSpotifyLink(value)
+        setInputs((prevState) => ({ ...prevState, spotify: value }));
+
+    }
+
+    function handleAppleMusicChange(value) {
+        setAMusicLink(value)
+        setInputs((prevState) => ({ ...prevState, amusic: value }));
+    }
+
+    function handleLinkedInChange(value) {
+        setLinkedLink(value)
+        setInputs((prevState) => ({ ...prevState, linkedin: value }))
+    }
+
+    function handleYoutubeChange(value) {
+        setYoutubeLink(value)
+        setInputs((prevState) => ({ ...prevState, youtube: value }))
+    }
+
+    function handlePintrestChange(value) {
+        setYoutubeLink(value)
+        setInputs((prevState) => ({ ...prevState, pintrest: value }))
+    }
+
     return (
         <><SheetHeader>
             <SheetTitle>ACCOUNT SETUP</SheetTitle>
@@ -54,8 +86,23 @@ function AccountSetup({ inputs, setInputs }) {
                     <SocialMediaIcon name='Facebook' onChange={handleFacebookLinkChange} />
                     <SocialMediaIcon name='Twitter' onChange={handleTwitterLinkChange} />
                     <SocialMediaIcon name='Instagram' onChange={handleInstagramLinkChange} />
+                    <SocialMediaIcon name='Spotify' onChange={hanndleSpotifyChange} />
+                    <SocialMediaIcon name='Music' onChange={handleAppleMusicChange} />
+                    <SocialMediaIcon name='Youtube' onChange={handleYoutubeChange} />
+                    <SocialMediaIcon name='Pintrest' onChange={handlePintrestChange} />
                 </div>
 
+
+                <div className='flex flex-col mt-6 '>
+                    <p className='font-md font-bold mb-6'>Your Accounts</p>
+                    {facebookLink && facebookLink.length ?
+                        <div className='flex flex-row gap-4 items-center border dark:border-slate-600 rounded p-3.5'>
+                            <Instagram color='#FFC0CB' />
+                            <p className=''>{facebookLink}</p>
+                        </div> : null
+                    }
+
+                </div>
 
 
 

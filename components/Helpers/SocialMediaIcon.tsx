@@ -1,7 +1,9 @@
-import { FacebookIcon, TwitterIcon, InstagramIcon } from "lucide-react";
+import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react";
 import { useState } from "react";
 import { Input } from "../ui/input";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog";
+import { BsSpotify } from 'react-icons/bs';
+import { FaItunesNote, FaPinterestSquare } from 'react-icons/fa'
 
 interface SocialMediaIconProps {
     name: string;
@@ -35,9 +37,18 @@ function SocialMediaIcon({ name, onChange }) {
                 onClick={handleClick}
             >
 
-                <AlertDialogTrigger>  {name === 'Facebook' && <FacebookIcon size={24} />} </AlertDialogTrigger>
-                <AlertDialogTrigger>   {name === 'Twitter' && <TwitterIcon size={24} />} </AlertDialogTrigger>
-                <AlertDialogTrigger>  {name === 'Instagram' && <InstagramIcon size={24} />}</AlertDialogTrigger>
+                {name === 'Facebook' && <AlertDialogTrigger> <FacebookIcon size={24} /> </AlertDialogTrigger>}
+                {name === 'Twitter' && <AlertDialogTrigger>  <TwitterIcon size={24} /> </AlertDialogTrigger>}
+                {name === 'Instagram' && <AlertDialogTrigger>  <InstagramIcon size={24} /> </AlertDialogTrigger>}
+                {name === 'Spotify' && <AlertDialogTrigger>  <BsSpotify size={24} /> </AlertDialogTrigger>}
+                {name === 'Music' && <AlertDialogTrigger>  <FaItunesNote size={24} /> </AlertDialogTrigger>}
+                {name === 'Youtube' && <AlertDialogTrigger>  <YoutubeIcon size={24} /> </AlertDialogTrigger>}
+                {name === 'Pintrest' && <AlertDialogTrigger>  <FaPinterestSquare size={24} /> </AlertDialogTrigger>}
+
+
+
+
+
             </div>
             {isInputOpen && (
 
